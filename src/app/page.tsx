@@ -58,13 +58,13 @@ const Home: React.FC = () => {
                   }
                   placeholder="Source Language"
                 />
-                <div className="flex flex-row justify-between w-full">
-                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center mt-4">
+                <div className="flex flex-row justify-between w-full items-center mt-4">
+                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center">
                     <SpeechRecognitionComponent setSourceText={setSourceText} />
                     <Volume2 size={24} onClick={() => handleAudioPlayback(sourceText)}/>
 
                   </span>
-                  <span className="text-sm pr-4 text-neutral-500 mt-4">
+                  <span className="text-sm text-neutral-500">
                     {sourceText.length} / 2000
                   </span>
                 </div>
