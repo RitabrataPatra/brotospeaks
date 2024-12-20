@@ -14,6 +14,7 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import SpeechRecognitionComponent from "@/components/SpeechRecognition/SpeechRecognition";
 import LanguageSelector from "@/components/Inputs/LanguageSelector";
+import LinkPaste from "@/components/Inputs/LinkPaste";
 import { Volume2 } from "lucide-react";
 import CategoryLinks from "@/components/categoryLinks";
 // // import FileUpload from "@/components/Inputs/FileUpload";
@@ -35,6 +36,17 @@ const Home: React.FC = () => {
   const handleAudioPlayback = (text : string) => {
     const utterance = new SpeechSynthesisUtterance(text)
     window.speechSynthesis.speak(utterance)
+  }
+
+  const handleLinkPaste = async (e : ChangeEvent<HTMLInputElement>) => {
+      const link = e.target.value
+      try {
+        const response = await fetch(link);
+        const data = await response.text();
+        setSourceText(data);
+      } catch (error) {
+        console.error("Error fetching link content:", error);
+      }
   }
   return (
     <div>
@@ -63,7 +75,7 @@ const Home: React.FC = () => {
                   <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center">
                     <SpeechRecognitionComponent setSourceText={setSourceText} />
                     <Volume2 size={24} onClick={() => handleAudioPlayback(sourceText)}/>
-
+                    <LinkPaste handleLinkPaste={handleLinkPaste}/>
                   </span>
                   <span className="text-sm text-neutral-500">
                     {sourceText.length} / 2000
@@ -74,7 +86,7 @@ const Home: React.FC = () => {
               <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-zinc-900">
                 <CardArea
                   id="target-language"
-                  value={"targetText"}
+                  value={""}
                   onChange={() => {}}
                   placeholder="Target Language"
                 />
