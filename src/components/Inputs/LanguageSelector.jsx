@@ -17,7 +17,7 @@ const LanguageSelector = ({
   return (
     <div className="flex items-center gap-2">
       <span className="cursor-pointer rounded-full space-x-1 bg-black flex items-center px-2 flex-row">
-        <LanguagesIcon/>
+        <LanguagesIcon size={18}/>
 
         <Select className="bg-black flex flex-row rounded-full py-1 text-white items-center">
           <SelectTrigger className="w-[100px] border-none">

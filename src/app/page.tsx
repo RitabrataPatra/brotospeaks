@@ -59,12 +59,12 @@ const Home: React.FC = () => {
                   placeholder="Source Language"
                 />
                 <div className="flex flex-row justify-between w-full">
-                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center">
+                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center mt-4">
                     <SpeechRecognitionComponent setSourceText={setSourceText} />
                     <Volume2 size={24} onClick={() => handleAudioPlayback(sourceText)}/>
-                    <LanguageSelector selectedLanguage={selectedLanguage} setSelectedLanguage={setSelectedLanguage} languages={languages}/>
+
                   </span>
-                  <span className="text-sm pr-4 text-neutral-500">
+                  <span className="text-sm pr-4 text-neutral-500 mt-4">
                     {sourceText.length} / 2000
                   </span>
                 </div>
@@ -78,8 +78,9 @@ const Home: React.FC = () => {
                   placeholder="Target Language"
                 />
                 <div className="flex flex-row justify-between w-full">
-                  <span className="cursor-pointer flex items-center space-x-2 flex-row">
-                    <SpeechRecognitionComponent setSourceText={setSourceText} />
+                  <span className="cursor-pointer flex items-center space-x-2 flex-row text-neutral-500 mt-1">
+                    <LanguageSelector selectedLanguage={selectedLanguage} setSelectedLanguage={setSelectedLanguage} languages={languages}/>
+                    <Volume2 size={24} onClick={() => handleAudioPlayback(sourceText)}/>
                   </span>
                 </div>
               </BackgroundGradient>
