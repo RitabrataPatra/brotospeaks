@@ -13,6 +13,7 @@ import CardArea from "@/components/Inputs/CardArea";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import SpeechRecognitionComponent from "@/components/SpeechRecognition/SpeechRecognition";
+import LanguageSelector from "@/components/Inputs/LanguageSelector";
 import { Volume2 } from "lucide-react";
 // // import FileUpload from "@/components/Inputs/FileUpload";
 // // import LinkPaste from "@/components/Inputs/LinkPaste";
@@ -23,8 +24,12 @@ import { Volume2 } from "lucide-react";
 // // import SvgDecorations from "@/components/SvgDecorations";
 // // import CategoryLinks from "@/components/categoryLinks";
 
+const languages = ["English", "Spanish"];
+
 const Home: React.FC = () => {
+
   const [sourceText, setSourceText] = useState<string>("");
+  const[selectedLanguage, setSelectedLanguage] = useState<string>("English")
 
   const handleAudioPlayback = (text : string) => {
     const utterance = new SpeechSynthesisUtterance(text)
@@ -54,9 +59,10 @@ const Home: React.FC = () => {
                   placeholder="Source Language"
                 />
                 <div className="flex flex-row justify-between w-full">
-                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500">
+                  <span className="cursor-pointer flex space-x-2 flex-row text-neutral-500 items-center">
                     <SpeechRecognitionComponent setSourceText={setSourceText} />
                     <Volume2 size={24} onClick={() => handleAudioPlayback(sourceText)}/>
+                    <LanguageSelector selectedLanguage={selectedLanguage} setSelectedLanguage={setSelectedLanguage} languages={languages}/>
                   </span>
                   <span className="text-sm pr-4 text-neutral-500">
                     {sourceText.length} / 2000

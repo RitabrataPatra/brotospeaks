@@ -10,7 +10,7 @@ const CardArea = ({id , placeholder , value , onChange} ) => {
         value={value}
         onChange={onChange}
         className="py-2.5 px-4 border-none focus:outline-none block w-full border-transparent 
-    rounded-lg dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 text-neutral-200"
+      rounded-lg dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 text-neutral-200"
     
       />
     </div>

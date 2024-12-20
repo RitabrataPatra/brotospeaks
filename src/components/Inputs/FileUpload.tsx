@@ -1,8 +1,12 @@
+import { PaperclipIcon } from 'lucide-react'
 import React from 'react'
 
-const FileUpload = () => {
+const FileUpload = ({handleFileUpload} : {handleFileUpload: ()=>void}) => {
   return (
-    <div>FileUpload</div>
+    <label htmlFor="file-upload" className='cursor-pointer'>
+        <PaperclipIcon size={24}/>
+        <input type="file" id="file-upload" onChange={handleFileUpload} className='hidden'/>
+    </label>
   )
 }
 
