@@ -86,6 +86,7 @@ const Home: React.FC = () => {
 
           <div className="mt-7 sm:mt-12 mx-auto max-w-3xl relative">
             <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
+              {/* Cards */}
               <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-zinc-900">
                 <CardArea
                   id="source-language"
