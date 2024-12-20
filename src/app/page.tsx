@@ -15,6 +15,7 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import SpeechRecognitionComponent from "@/components/SpeechRecognition/SpeechRecognition";
 import LanguageSelector from "@/components/Inputs/LanguageSelector";
 import { Volume2 } from "lucide-react";
+import CategoryLinks from "@/components/categoryLinks";
 // // import FileUpload from "@/components/Inputs/FileUpload";
 // // import LinkPaste from "@/components/Inputs/LinkPaste";
 // // import LanguageSelector from "@/components/Inputs/LanguageSelector";
@@ -85,7 +86,9 @@ const Home: React.FC = () => {
                 </div>
               </BackgroundGradient>
             </div>
+
           </div>
+          <CategoryLinks/>
         </div>
       </BackgroundLines>
     </div>
